@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌌 Ömer Kor - Personal Portfolio
 
-## Getting Started
+A premium, interactive personal portfolio website showcasing modern frontend architecture, dynamic content management, and high-performance web applications. 
 
-First, run the development server:
+Check out the live version: [omerkor.vercel.app](https://omerkor.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 About This Project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This portfolio is not just a collection of links; it's a demonstration of my approach to modern UI/UX engineering and robust frontend architecture. Built with a focus on seamless user experiences, it highlights key projects like the **Luxury Boutique Hotel** — an application centered around premium accommodation and room reservation flows. The content is dynamically managed and delivered via Sanity.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Premium UI/UX:** Minimalist, high-end design language tailored for modern web standards.
+* **Dynamic Content (CMS):** Fully integrated with Sanity (Headless CMS) for seamless, real-time content updates without touching the codebase.
+* **Performance Optimized:** Server-side rendering (SSR) and static site generation (SSG) via Next.js for blazing fast load times.
+* **Fully Responsive:** Pixel-perfect adaptability across all mobile, tablet, and desktop devices.
+* **Clean Code Architecture:** Emphasizes maintainability, scalable component structures, and modern React practices.
 
-## Learn More
+## 🛠️ Built With
 
-To learn more about Next.js, take a look at the following resources:
+* **Framework:** Next.js (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS
+* **CMS:** Sanity (Headless CMS)
+* **Deployment:** Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚦 Running Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To run this portfolio on your own machine:
 
-## Deploy on Vercel
+1. Clone the repository:
+   git clone https://github.com/omerkor101/my-portfolio.git
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Navigate to the project directory:
+   cd my-portfolio
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Install dependencies:
+   npm install
+
+4. Start the development server:
+   npm run dev
+
+5. Open http://localhost:3000 in your browser.
+
+## 👨‍💻 Get In Touch
+
+I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to explore my code or connect with me!
+
+**Ömer Kor**
+Frontend Developer
