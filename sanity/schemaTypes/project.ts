@@ -6,12 +6,12 @@ export const project = {
         {
             name: 'title',
             title: 'Proje Başlığı',
-            type: 'string',
+            type: 'localeString', // string yerine kendi çok dilli tipimizi yazdık
         },
         {
             name: 'description',
             title: 'Açıklama',
-            type: 'text',
+            type: 'localeText', // text yerine kendi çok dilli tipimizi yazdık
         },
         {
             name: 'image',
