@@ -1,35 +1,40 @@
 "use client";
-const steps = [
-    {
-        title: "Keşif & Planlama",
-        description: "İhtiyaçlarınızı dinliyor, projenizin hedeflerini ve teknik gereksinimlerini belirliyorum.",
-        icon: "🔍"
-    },
-    {
-        title: "Tasarım & UI/UX",
-        description: "Modern, hızlı ve kullanıcı dostu arayüzleri markanıza özel olarak tasarlıyorum.",
-        icon: "🎨"
-    },
-    {
-        title: "Geliştirme",
-        description: "Next.js ve Tailwind CSS ile performans odaklı, yaşayan bir uygulama inşa ediyorum.",
-        icon: "💻"
-    },
-    {
-        title: "Test & Yayın",
-        description: "Tüm cihazlarda kusursuz çalıştığından emin olduktan sonra projenizi canlıya alıyorum.",
-        icon: "🚀"
-    }
-];
-export default function Steps() {
 
+import { useLanguage } from "@/context/LanguageContext";
+
+export default function Steps() {
+    const { t } = useLanguage();
+
+    // steps dizisini t() fonksiyonunu kullanabilmek için component içine aldık
+    const steps = [
+        {
+            title: t("step1Title"),
+            description: t("step1Desc"),
+            icon: "🔍"
+        },
+        {
+            title: t("step2Title"),
+            description: t("step2Desc"),
+            icon: "🎨"
+        },
+        {
+            title: t("step3Title"),
+            description: t("step3Desc"),
+            icon: "💻"
+        },
+        {
+            title: t("step4Title"),
+            description: t("step4Desc"),
+            icon: "🚀"
+        }
+    ];
 
     return (
         <section className="container mx-auto px-6 py-24 relative z-10">
             <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold text-white mb-4">Nasıl Çalışıyorum?</h2>
+                <h2 className="text-4xl font-bold text-white mb-4">{t("howIWorkTitle")}</h2>
                 <p className="text-slate-400 max-w-xl mx-auto text-lg">
-                    Bir fikrin gerçeğe dönüşme sürecini şeffaf ve planlı bir şekilde yönetiyorum.
+                    {t("howIWorkDesc")}
                 </p>
             </div>
 
