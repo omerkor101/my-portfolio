@@ -29,7 +29,7 @@ export default function Footer() {
                         <h4 className="text-white font-semibold mb-6">{t("footerLinks")}</h4>
                         <ul className="space-y-4 text-slate-400">
                             <li><a href="https://github.com/omerkor101" target="_blank" className="hover:text-white">GitHub</a></li>
-                            <li><a href="https://linkedin.com/omerkor" target="_blank" className="hover:text-white">LinkedIn</a></li>
+                            <li><a href="https://www.linkedin.com/in/omerkor/" target="_blank" className="hover:text-white">LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>
