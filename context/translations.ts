@@ -2,12 +2,11 @@
 
 export type Language = "tr" | "en";
 
-// Sitede kullanacağımız tüm çeviri anahtarlarını buraya ekliyoruz
-export type TranslationKey = 
-  | "home" 
-  | "projects" 
-  | "contact" 
-  | "getOffer" 
+export type TranslationKey =
+  | "home"
+  | "projects"
+  | "contact"
+  | "getOffer"
   | "heroTitle"
   | "projectsTitle"
   | "projectsDesc"
@@ -31,9 +30,38 @@ export type TranslationKey =
   | "step3Title"
   | "step3Desc"
   | "step4Title"
-  | "step4Desc";
+  | "step4Desc"
+  | "contactTitle"
+  | "contactDesc"
+  | "locationText"
+  | "namePlaceholder"
+  | "emailPlaceholder"
+  | "messagePlaceholder"
+  | "sendingBtn"
+  | "successBtn"
+  | "sendBtn"
+  // ---  (Form Alanları) ---
+  | "servicePlaceholder"
+  | "serviceWeb"
+  | "serviceMobile"
+  | "serviceSeo"
+  | "budgetTitle"
+  | "budgetSmall"   // YENİ EKLENDİ
+  | "budgetMedium"  // YENİ EKLENDİ
+  | "budgetLarge"   // YENİ EKLENDİ
+  | "fileClickToUpload"
+  | "fileLimits"
+  | "kvkkLabel"
+  // --- (Zod Hata Mesajları) ---
+  | "errNameMin"
+  | "errEmailInvalid"
+  | "errServiceReq"
+  | "errBudgetReq"
+  | "errMessageMin"
+  | "errFileTooLarge"
+  | "errFileInvalidType"
+  | "errKvkkReq";
 
-// Record ile yapıyı sıkı bir şekilde kilitliyoruz
 export const translations: Record<Language, Record<TranslationKey, string>> = {
   tr: {
     home: "Ana Sayfa",
@@ -64,6 +92,38 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     step3Desc: "Next.js ve Tailwind CSS ile performans odaklı, yaşayan bir uygulama inşa ediyorum.",
     step4Title: "Test & Yayın",
     step4Desc: "Tüm cihazlarda kusursuz çalıştığından emin olduktan sonra projenizi canlıya alıyorum.",
+    contactTitle: "Hadi Bir Proje\nBaşlatalım",
+    contactDesc: "Aklınızda bir fikir mi var? Formu doldurarak bana ulaşabilirsiniz. En geç 24 saat içinde dönüş yaparım.",
+    locationText: "İzmir, Türkiye",
+    namePlaceholder: "Ad Soyad",
+    emailPlaceholder: "E-posta",
+    messagePlaceholder: "Mesajınız...",
+    sendingBtn: "Gönderiliyor...",
+    successBtn: "Mesaj Alındı! ✓",
+    sendBtn: "Mesajı Gönder",
+
+    //  (Form Alanları TR)
+    servicePlaceholder: "Hangi hizmeti istiyorsunuz?",
+    serviceWeb: "Web Tasarım & Geliştirme",
+    serviceMobile: "Mobil Uygulama",
+    serviceSeo: "SEO & Performans Optimizasyonu",
+    budgetTitle: "Proje Bütçesi",
+    budgetSmall: "10k - 30k ₺",
+    budgetMedium: "30k - 70k ₺",
+    budgetLarge: "70k+ ₺",
+    fileClickToUpload: "Dosya eklemek için tıklayın",
+    fileLimits: "PNG, JPG veya PDF (Maks. 5MB)",
+    kvkkLabel: "Gizlilik politikasını ve kişisel verilerimin işlenmesini kabul ediyorum.",
+
+    // (Zod Hata Mesajları TR)
+    errNameMin: "Adınız en az 3 karakter olmalıdır.",
+    errEmailInvalid: "Lütfen geçerli bir e-posta adresi girin.",
+    errServiceReq: "Lütfen almak istediğiniz hizmeti seçin.",
+    errBudgetReq: "Lütfen bütçe aralığınızı seçin.",
+    errMessageMin: "Mesajınız en az 10 karakter olmalıdır.",
+    errFileTooLarge: "Dosya boyutu en fazla 5MB olabilir.",
+    errFileInvalidType: "Sadece JPG, PNG veya PDF yükleyebilirsiniz.",
+    errKvkkReq: "Devam etmek için sözleşmeyi onaylamalısınız."
   },
   en: {
     home: "Home",
@@ -76,7 +136,7 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     seeAll: "See All",
     viewDetails: "VIEW DETAILS",
     seeMoreProjects: "See Other Projects & Services",
-    location: "Time in İzmir",
+    location: "Time in Izmir",
     availability: "Available for New Projects",
     heroHeadingStart: "Turning Ideas Into",
     heroHeadingEnd: "Digital Experiences",
@@ -94,5 +154,37 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     step3Desc: "I build a performance-oriented, living application with Next.js and Tailwind CSS.",
     step4Title: "Testing & Deployment",
     step4Desc: "I deploy your project to live after ensuring it works flawlessly on all devices.",
+    contactTitle: "Let's Start\na Project",
+    contactDesc: "Do you have an idea in mind? Reach out to me by filling out the form. I will get back to you within 24 hours.",
+    locationText: "Izmir, Turkey",
+    namePlaceholder: "Full Name",
+    emailPlaceholder: "Email",
+    messagePlaceholder: "Your Message...",
+    sendingBtn: "Sending...",
+    successBtn: "Message Received! ✓",
+    sendBtn: "Send Message",
+
+    // (Form Alanları EN)
+    servicePlaceholder: "Which service do you need?",
+    serviceWeb: "Web Design & Development",
+    serviceMobile: "Mobile Application",
+    serviceSeo: "SEO & Performance Optimization",
+    budgetTitle: "Project Budget",
+    budgetSmall: "10k - 30k ₺",
+    budgetMedium: "30k - 70k ₺",
+    budgetLarge: "70k+ ₺",
+    fileClickToUpload: "Click to add a file",
+    fileLimits: "PNG, JPG, or PDF (Max. 5MB)",
+    kvkkLabel: "I accept the privacy policy and the processing of my personal data.",
+
+    // (Zod Hata Mesajları EN)
+    errNameMin: "Name must be at least 3 characters.",
+    errEmailInvalid: "Please enter a valid email address.",
+    errServiceReq: "Please select a service.",
+    errBudgetReq: "Please select a budget range.",
+    errMessageMin: "Message must be at least 10 characters.",
+    errFileTooLarge: "File size can be maximum 5MB.",
+    errFileInvalidType: "You can only upload JPG, PNG, or PDF.",
+    errKvkkReq: "You must accept the agreement to continue."
   }
 };
