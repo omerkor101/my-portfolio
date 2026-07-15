@@ -60,7 +60,11 @@ export type TranslationKey =
   | "errMessageMin"
   | "errFileTooLarge"
   | "errFileInvalidType"
-  | "errKvkkReq";
+  | "errKvkkReq"
+  | "footerDesc"
+  | "footerNav"
+  | "footerLinks"
+  | "footerCopyright";
 
 export const translations: Record<Language, Record<TranslationKey, string>> = {
   tr: {
@@ -101,6 +105,10 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     sendingBtn: "Gönderiliyor...",
     successBtn: "Mesaj Alındı! ✓",
     sendBtn: "Mesajı Gönder",
+    footerDesc: "İzmir merkezli bağımsız web geliştiricisi. Modern teknolojilerle dijital yüzünüzü tasarlıyorum.",
+    footerNav: "Navigasyon",
+    footerLinks: "Bağlantılar",
+    footerCopyright: "© 2026 Ömer Kor. Tüm hakları saklıdır.",
 
     //  (Form Alanları TR)
     servicePlaceholder: "Hangi hizmeti istiyorsunuz?",
@@ -163,7 +171,10 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     sendingBtn: "Sending...",
     successBtn: "Message Received! ✓",
     sendBtn: "Send Message",
-
+    footerDesc: "Independent web developer based in Izmir. Designing your digital face with modern technologies.",
+    footerNav: "Navigation",
+    footerLinks: "Links",
+    footerCopyright: "© 2026 Ömer Kor. All rights reserved.",
     // (Form Alanları EN)
     servicePlaceholder: "Which service do you need?",
     serviceWeb: "Web Design & Development",
