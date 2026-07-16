@@ -6,22 +6,22 @@ import { useLanguage } from "@/context/LanguageContext";
 
 // Tech stack aynı kalabilir, genellikle evrenseldir
 const techStack = [
-  // Çekirdek Uzmanlık: İşi bizzat yaptığın ve en güçlü olduğun alanlar
-  { name: "Next.js 16+", level: "core" },
-  { name: "React 19", level: "core" },
-  { name: "TypeScript", level: "core" },
-  { name: "Tailwind CSS", level: "core" },
-  
-  // Mühendislik Araçları: Proje mimarisini kuran yeteneklerin
-  { name: "Sanity CMS", level: "tool" },
-  { name: "Framer Motion", level: "tool" },
-  { name: "Zod & Hook Form", level: "tool" },
-  { name: "REST API Integration", level: "tool" },
-  
-  // Operasyonel Yetkinlikler: Süreç yönetimi
-  { name: "Git / GitHub", level: "extra" },
-  { name: "Vercel Deployment", level: "extra" },
-  { name: "SEO & Performance", level: "extra" },
+    // Çekirdek Uzmanlık: İşi bizzat yaptığın ve en güçlü olduğun alanlar
+    { name: "Next.js 16+", level: "core" },
+    { name: "React 19", level: "core" },
+    { name: "TypeScript", level: "core" },
+    { name: "Tailwind CSS", level: "core" },
+
+    // Mühendislik Araçları: Proje mimarisini kuran yeteneklerin
+    { name: "Sanity CMS", level: "tool" },
+    { name: "Framer Motion", level: "tool" },
+    { name: "Zod & Hook Form", level: "tool" },
+    { name: "REST API Integration", level: "tool" },
+
+    // Operasyonel Yetkinlikler: Süreç yönetimi
+    { name: "Git / GitHub", level: "extra" },
+    { name: "Vercel Deployment", level: "extra" },
+    { name: "SEO & Performance", level: "extra" },
 ];
 
 export default function Hero() {
@@ -30,9 +30,9 @@ export default function Hero() {
     const { t, language } = useLanguage();
 
     // Animasyonlu kelimeler dile göre seçiliyor
-    const animatedWords = language === 'tr' 
-        ? ["Modern Dijital", "Hızlı Web", "SEO Odaklı", "Kullanıcı Dostu"]
-        : ["Modern Digital", "Fast Web", "SEO Focused", "User Friendly"];
+    const animatedWords = language === 'tr'
+        ? ["Güçlü Altyapı", "İleri Teknolojiler", "Ölçeklenebilir Yapılar", "Kesintisiz Performans"]
+        : ["Robust Infrastructure", "Advanced Technology", "Scalable Systems", "Seamless Performance"];
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -63,11 +63,16 @@ export default function Hero() {
                 </span>
 
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8 min-h-[160px] flex flex-col items-center justify-center">
-                    {t("heroHeadingStart")}
+                    {/* Üst Kısım: Öznellik */}
+                    <span className="text-3xl md:text-5xl mb-4 text-slate-400 font-medium">
+                        {t("heroHeadingStart")}
+                    </span>
+
+                    {/* Orta Kısım: Animasyonlu Vurgu (Burada senin "nasıl" çalıştığını görüyorlar) */}
                     <div className="h-20 flex items-center justify-center">
                         <AnimatePresence mode="wait">
                             <motion.span
-                                key={`${language}-${index}`} // Dil değiştiğinde animasyonun doğru çalışması için key güncellendi
+                                key={`${language}-${index}`}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
@@ -78,7 +83,11 @@ export default function Hero() {
                             </motion.span>
                         </AnimatePresence>
                     </div>
-                    {t("heroHeadingEnd")}
+
+                    {/* Alt Kısım: Aksiyon */}
+                    <span className="text-3xl md:text-5xl mt-2">
+                        {t("heroHeadingEnd")}
+                    </span>
                 </h1>
                 <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-10 leading-relaxed">
                     {t("heroDesc")}

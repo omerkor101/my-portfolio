@@ -9,7 +9,6 @@ export default function ContactForm() {
     const { t } = useLanguage();
     const [status, setStatus] = useState("");
 
-    // 1. ZOD ŞEMASI (Dosya yükleme tamamen kaldırıldı, sade ve net)
     const contactSchema = z.object({
         name: z.string().min(3, { message: t("errNameMin") }),
         email: z.string().email({ message: t("errEmailInvalid") }),
@@ -28,21 +27,15 @@ export default function ContactForm() {
         reset,
     } = useForm<ContactFormData>({
         resolver: zodResolver(contactSchema),
-        defaultValues: {
-            kvkk: false,
-        }
+        defaultValues: { kvkk: false }
     });
 
     const onSubmit = async (data: ContactFormData) => {
         setStatus("sending");
-
         try {
             const formData = new FormData();
-
-            // LÜTFEN KENDİ ACCESS KEY'İNİ BURAYA YAPIŞTIR
             formData.append("access_key", "9c13447e-9ef7-49c5-8c0e-d87a2ad3abae");
-            
-            formData.append("subject", `${data.name} - Portfolyondan Yeni Mesaj!`);
+            formData.append("subject", `İletişim: ${data.name}`);
             formData.append("İsim", data.name);
             formData.append("E-posta", data.email);
             formData.append("Mesaj", data.message);
@@ -53,20 +46,17 @@ export default function ContactForm() {
             });
 
             const result = await response.json();
-
             if (result.success) {
                 setStatus("success");
                 reset(); 
                 setTimeout(() => setStatus(""), 3000);
             } else {
-                console.error("Gönderim hatası:", result);
                 setStatus("");
-                alert("Mesaj gönderilemedi, lütfen daha sonra tekrar deneyin.");
+                alert(t("errGeneral")); // t() üzerinden hata mesajı yönetimi daha profesyoneldir
             }
         } catch (error) {
-            console.error("Bağlantı hatası:", error);
             setStatus("");
-            alert("İnternet bağlantınızda bir sorun oluştu.");
+            alert(t("errConnection"));
         }
     };
 
@@ -76,73 +66,40 @@ export default function ContactForm() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {/* Sol Bilgilendirme Alanı */}
                     <div>
-                        <h2 className="text-3xl font-bold text-white mb-6 whitespace-pre-line">
+                        <h2 className="text-3xl font-bold text-white mb-6 leading-tight">
                             {t("contactTitle")}
                         </h2>
-                        <p className="text-slate-400 mb-8">{t("contactDesc")}</p>
+                        <p className="text-slate-400 mb-8 leading-relaxed">
+                            {t("contactDesc")}
+                        </p>
                         <div className="space-y-4 text-slate-300">
-                            <div className="flex items-center gap-4"><span className="text-blue-400 text-xl">📧</span> omerkor.eu@gmail.com</div>
-                            <div className="flex items-center gap-4"><span className="text-emerald-400 text-xl">📍</span> {t("locationText")}</div>
+                            <a href="mailto:omerkor.eu@gmail.com" className="flex items-center gap-4 hover:text-blue-400 transition-colors">
+                                <span className="text-blue-400 text-xl">📧</span> omerkor.eu@gmail.com
+                            </a>
+                            <div className="flex items-center gap-4">
+                                <span className="text-emerald-400 text-xl">📍</span> {t("locationText")}
+                            </div>
                         </div>
                     </div>
                     
                     {/* Sağ Form Alanı */}
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+                        <input {...register("name")} type="text" placeholder={t("namePlaceholder")} 
+                            className={`w-full bg-slate-900/50 border rounded-xl px-4 py-3 text-white outline-none transition-all focus:border-blue-500 ${errors.name ? 'border-red-500' : 'border-slate-700'}`} />
                         
-                        {/* İsim Alanı */}
-                        <div>
-                            <input 
-                                {...register("name")}
-                                type="text" 
-                                className={`w-full bg-slate-900/50 border rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-colors ${errors.name ? 'border-red-500' : 'border-slate-700'}`} 
-                                placeholder={t("namePlaceholder")} 
-                            />
-                            {errors.name && <span className="text-red-400 text-xs mt-1 ml-2 font-medium block">{errors.name.message}</span>}
-                        </div>
+                        <input {...register("email")} type="email" placeholder={t("emailPlaceholder")} 
+                            className={`w-full bg-slate-900/50 border rounded-xl px-4 py-3 text-white outline-none transition-all focus:border-blue-500 ${errors.email ? 'border-red-500' : 'border-slate-700'}`} />
 
-                        {/* E-posta Alanı */}
-                        <div>
-                            <input 
-                                {...register("email")}
-                                type="email" 
-                                className={`w-full bg-slate-900/50 border rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-colors ${errors.email ? 'border-red-500' : 'border-slate-700'}`} 
-                                placeholder={t("emailPlaceholder")} 
-                            />
-                            {errors.email && <span className="text-red-400 text-xs mt-1 ml-2 font-medium block">{errors.email.message}</span>}
-                        </div>
+                        <textarea {...register("message")} rows={4} placeholder={t("messagePlaceholder")} 
+                            className={`w-full bg-slate-900/50 border rounded-xl px-4 py-3 text-white outline-none transition-all focus:border-blue-500 ${errors.message ? 'border-red-500' : 'border-slate-700'}`} />
 
-                        {/* Mesaj Alanı */}
-                        <div>
-                            <textarea 
-                                {...register("message")}
-                                rows={4} 
-                                className={`w-full bg-slate-900/50 border rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-colors ${errors.message ? 'border-red-500' : 'border-slate-700'}`} 
-                                placeholder={t("messagePlaceholder")} 
-                            />
-                            {errors.message && <span className="text-red-400 text-xs mt-1 ml-2 font-medium block">{errors.message.message}</span>}
-                        </div>
+                        <label className="flex items-start gap-3 cursor-pointer group">
+                            <input type="checkbox" {...register("kvkk")} className="mt-1 w-4 h-4 rounded text-blue-600 bg-slate-900 border-slate-700 focus:ring-blue-500" />
+                            <span className="text-xs text-slate-400 group-hover:text-slate-300 leading-relaxed">{t("kvkkLabel")}</span>
+                        </label>
 
-                        {/* Checkbox (KVKK Onayı) */}
-                        <div>
-                            <label className="flex items-start gap-3 cursor-pointer group select-none">
-                                <input 
-                                    type="checkbox" 
-                                    {...register("kvkk")}
-                                    className="mt-1 w-4 h-4 rounded text-blue-600 bg-slate-900 border-slate-700 focus:ring-blue-500 focus:ring-offset-slate-900 transition-colors"
-                                />
-                                <span className="text-xs text-slate-400 group-hover:text-slate-300 transition-colors leading-relaxed">
-                                    {t("kvkkLabel")}
-                                </span>
-                            </label>
-                            {errors.kvkk && <span className="text-red-400 text-xs mt-1 ml-2 font-medium block">{errors.kvkk.message}</span>}
-                        </div>
-
-                        {/* Gönder Butonu */}
-                        <button 
-                            type="submit" 
-                            disabled={status === "sending" || status === "success"} 
-                            className={`w-full py-4 font-bold rounded-xl transition-all ${status === "success" ? "bg-emerald-500" : "bg-blue-600 hover:bg-blue-500"} text-white`}
-                        >
+                        <button type="submit" disabled={status === "sending" || status === "success"} 
+                            className={`w-full py-4 font-bold rounded-xl transition-all ${status === "success" ? "bg-emerald-600" : "bg-blue-600 hover:bg-blue-500"} text-white`}>
                             {status === "sending" ? t("sendingBtn") : status === "success" ? t("successBtn") : t("sendBtn")}
                         </button>
                     </form>
