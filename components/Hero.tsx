@@ -6,22 +6,22 @@ import { useLanguage } from "@/context/LanguageContext";
 
 // Tech stack aynı kalabilir, genellikle evrenseldir
 const techStack = [
-  { name: "Next.js 14+", level: "core" },
-  { name: "React", level: "core" },
+  // Çekirdek Uzmanlık: İşi bizzat yaptığın ve en güçlü olduğun alanlar
+  { name: "Next.js 16+", level: "core" },
+  { name: "React 19", level: "core" },
   { name: "TypeScript", level: "core" },
   { name: "Tailwind CSS", level: "core" },
-  { name: "Node.js", level: "core" },
+  
+  // Mühendislik Araçları: Proje mimarisini kuran yeteneklerin
+  { name: "Sanity CMS", level: "tool" },
   { name: "Framer Motion", level: "tool" },
-  { name: "Sanity / Headless CMS", level: "tool" },
-  { name: "SEO Optimization", level: "tool" },
-  { name: "Responsive Design", level: "tool" },
-  { name: "Git / GitHub", level: "tool" },
-  { name: "Vercel Deployment", level: "tool" },
-  { name: "UI/UX Design", level: "tool" },
-  { name: "Firebase", level: "tool" },
-  { name: "REST APIs", level: "extra" },
-  { name: "Progressive Web Apps", level: "extra" },
-  { name: "Performance Audit", level: "extra" },
+  { name: "Zod & Hook Form", level: "tool" },
+  { name: "REST API Integration", level: "tool" },
+  
+  // Operasyonel Yetkinlikler: Süreç yönetimi
+  { name: "Git / GitHub", level: "extra" },
+  { name: "Vercel Deployment", level: "extra" },
+  { name: "SEO & Performance", level: "extra" },
 ];
 
 export default function Hero() {
