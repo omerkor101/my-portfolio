@@ -1,4 +1,3 @@
-// components/Navbar.tsx
 "use client";
 import { useLanguage } from "@/context/LanguageContext";
 import { usePathname } from "next/navigation";
@@ -7,7 +6,6 @@ export default function Navbar() {
     const { language, changeLanguage, t } = useLanguage();
     const pathname = usePathname();
 
-    // URL "/studio" ile başlıyorsa Navbar'ı ekranda gösterme
     if (pathname.startsWith("/studio")) {
         return null;
     }
@@ -43,8 +41,14 @@ export default function Navbar() {
                         </button>
                     </div>
 
-                    <a href="#contact" className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded-xl transition-all">
-                        {t("getOffer")}
+                    {/* CV İndirme Butonu - PDF dosyanı public klasörüne koymayı unutma */}
+                    <a 
+                        href={`/cv-${language}.pdf`} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded-xl transition-all"
+                    >
+                        {t("downloadCv")}
                     </a>
                 </div>
             </div>

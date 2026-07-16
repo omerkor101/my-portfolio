@@ -64,7 +64,8 @@ export type TranslationKey =
   | "footerDesc"
   | "footerNav"
   | "footerLinks"
-  | "footerCopyright";
+  | "footerCopyright"
+  |"downloadCv";
 
 export const translations: Record<Language, Record<TranslationKey, string>> = {
   tr: {
@@ -109,6 +110,7 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     footerNav: "Navigasyon",
     footerLinks: "Bağlantılar",
     footerCopyright: "© 2026 Ömer Kor. Tüm hakları saklıdır.",
+    downloadCv:"Cv İndir",
 
     //  (Form Alanları TR)
     servicePlaceholder: "Hangi hizmeti istiyorsunuz?",
@@ -196,6 +198,7 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     errMessageMin: "Message must be at least 10 characters.",
     errFileTooLarge: "File size can be maximum 5MB.",
     errFileInvalidType: "You can only upload JPG, PNG, or PDF.",
-    errKvkkReq: "You must accept the agreement to continue."
+    errKvkkReq: "You must accept the agreement to continue.",
+    downloadCv:"Download Cv",
   }
 };
