@@ -88,7 +88,7 @@ export default function Hero() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.5 }}
-                                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400"
+                                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 pb-8"
                             >
                                 {animatedWords[index]}
                             </motion.span>
