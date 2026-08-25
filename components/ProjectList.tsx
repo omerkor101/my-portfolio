@@ -62,7 +62,7 @@ export default function ProjectList({ projects }: { projects: any[] }) {
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                     {currentTitle}
                   </h3>
-                  <p className="text-slate-400 text-sm mb-6 line-clamp-4">
+                  <p className="text-slate-400 text-sm mb-6">
                     {currentDescription}
                   </p>
                   

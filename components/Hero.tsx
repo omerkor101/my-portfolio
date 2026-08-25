@@ -4,35 +4,46 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
-// Tech stack aynı kalabilir, genellikle evrenseldir
-const techStack = [
-    // Çekirdek Uzmanlık: İşi bizzat yaptığın ve en güçlü olduğun alanlar
-    { name: "Next.js 16+", level: "core" },
-    { name: "React 19", level: "core" },
-    { name: "TypeScript", level: "core" },
-    { name: "Tailwind CSS", level: "core" },
-
-    // Mühendislik Araçları: Proje mimarisini kuran yeteneklerin
-    { name: "Sanity CMS", level: "tool" },
-    { name: "Framer Motion", level: "tool" },
-    { name: "Zod & Hook Form", level: "tool" },
-    { name: "REST API Integration", level: "tool" },
-
-    // Operasyonel Yetkinlikler: Süreç yönetimi
-    { name: "Git / GitHub", level: "extra" },
-    { name: "Vercel Deployment", level: "extra" },
-    { name: "SEO & Performance", level: "extra" },
-];
-
 export default function Hero() {
     const [index, setIndex] = useState(0);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const { t, language } = useLanguage();
 
-    // Animasyonlu kelimeler dile göre seçiliyor
+    // Dinamik kelimeler
     const animatedWords = language === 'tr'
-        ? ["Güçlü Altyapı", "İleri Teknolojiler", "Ölçeklenebilir Yapılar", "Kesintisiz Performans"]
-        : ["Robust Infrastructure", "Advanced Technology", "Scalable Systems", "Seamless Performance"];
+        ? ["Modern Web Siteleri", "Satış Odaklı Çözümler", "Google Uyumlu Sayfalar", "Hızlı ve Güvenli Sistemler"]
+        : ["Modern Web Solutions", "High-Converting Websites", "SEO Optimized Pages", "Fast & Secure Platforms"];
+
+    // Dile göre değişen özellikler listesi
+    const featureHighlights = language === 'tr' ? [
+        { name: "%100 Mobil Uyumlu", level: "core" },
+        { name: "Yüksek Hız & Google SEO", level: "core" },
+        { name: "Yönetim Paneli (CMS)", level: "core" },
+        { name: "WhatsApp & Form Entegrasyonu", level: "core" },
+
+        { name: "Özel Tasarım", level: "tool" },
+        { name: "Güvenli Altyapı", level: "tool" },
+        { name: "E-Ticaret & Katalog", level: "tool" },
+        { name: "Kurumsal E-Posta Kurulumu", level: "tool" },
+
+        { name: "Modern Next.js & React", level: "extra" },
+        { name: "Hızlı Teslimat", level: "extra" },
+        { name: "Sıfır Sunucu Masrafı", level: "extra" },
+    ] : [
+        { name: "100% Mobile Responsive", level: "core" },
+        { name: "High Speed & Google SEO", level: "core" },
+        { name: "Content Management (CMS)", level: "core" },
+        { name: "WhatsApp & Form Integration", level: "core" },
+
+        { name: "Custom UI/UX Design", level: "tool" },
+        { name: "Secure Infrastructure", level: "tool" },
+        { name: "E-Commerce & Catalog", level: "tool" },
+        { name: "Business Email Setup", level: "tool" },
+
+        { name: "Modern Next.js & React", level: "extra" },
+        { name: "Fast Turnaround", level: "extra" },
+        { name: "Zero Hosting Maintenance", level: "extra" },
+    ];
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -59,17 +70,17 @@ export default function Hero() {
             />
             <section className="container mx-auto px-6 pt-32 pb-20 text-center relative z-10">
                 <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wider text-blue-400 uppercase bg-blue-400/10 border border-blue-400/20 rounded-full">
-                    📍 {t("location")} {new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })} • {t("availability")}
+                    🚀 {t("location")} • {t("availability")}
                 </span>
 
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8 min-h-[160px] flex flex-col items-center justify-center">
-                    {/* Üst Kısım: Öznellik */}
+                    {/* Üst Kısım */}
                     <span className="text-3xl md:text-5xl mb-4 text-slate-400 font-medium">
                         {t("heroHeadingStart")}
                     </span>
 
-                    {/* Orta Kısım: Animasyonlu Vurgu (Burada senin "nasıl" çalıştığını görüyorlar) */}
-                    <div className="h-20 flex items-center justify-center">
+                    {/* Orta Kısım: Animasyonlu Vurgu */}
+                    <div className="h-24 md:h-32 flex items-center justify-center">
                         <AnimatePresence mode="wait">
                             <motion.span
                                 key={`${language}-${index}`}
@@ -84,34 +95,38 @@ export default function Hero() {
                         </AnimatePresence>
                     </div>
 
-                    {/* Alt Kısım: Aksiyon */}
+                    {/* Alt Kısım */}
                     <span className="text-3xl md:text-5xl mt-2">
                         {t("heroHeadingEnd")}
                     </span>
                 </h1>
+                
                 <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-10 leading-relaxed">
                     {t("heroDesc")}
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#projects" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-500/25">
-                        {t("viewProjectsBtn")}
-                    </a>
-                    <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl transition-all border border-slate-700">
+                    <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-500/25">
                         {t("contactBtn")}
+                    </a>
+                    <a href="#projects" className="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl transition-all border border-slate-700">
+                        {t("viewProjectsBtn")}
                     </a>
                 </div>
 
-                {/* Tech Stack Bar */}
+                {/* Özellikler & Avantajlar Bandı */}
                 <div className="mt-20 pt-10 border-t border-slate-800/50">
-                    <p className="text-sm text-slate-500 mb-8 uppercase tracking-widest font-semibold">{t("techStackTitle")}</p>
+                    <p className="text-sm text-slate-500 mb-8 uppercase tracking-widest font-semibold">
+                        {t("techStackTitle")}
+                    </p>
                     <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 max-w-5xl mx-auto px-4">
-                        {techStack.map((tech, i) => (
-                            <span key={i} className={`transition-all duration-300 cursor-default ${tech.level === 'core' ? 'font-bold text-xl text-white hover:text-blue-400' :
-                                tech.level === 'tool' ? 'font-medium text-lg text-slate-300 opacity-70 hover:opacity-100' :
-                                    'text-md text-slate-500 opacity-40 italic'
-                                }`}>
-                                {tech.name}
+                        {featureHighlights.map((feature, i) => (
+                            <span key={i} className={`transition-all duration-300 cursor-default ${
+                                feature.level === 'core' ? 'font-bold text-lg md:text-xl text-white hover:text-blue-400' :
+                                feature.level === 'tool' ? 'font-medium text-md md:text-lg text-slate-300 opacity-80 hover:opacity-100' :
+                                'text-sm md:text-md text-slate-500 opacity-50 italic'
+                            }`}>
+                                {feature.name}
                             </span>
                         ))}
                     </div>
