@@ -94,7 +94,7 @@ export default function Hero() {
                             </motion.span>
                         </AnimatePresence>
                     </div>
-
+ 
                     {/* Alt Kısım */}
                     <span className="text-3xl md:text-5xl mt-2">
                         {t("heroHeadingEnd")}
