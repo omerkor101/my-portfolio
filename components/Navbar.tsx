@@ -42,14 +42,14 @@ export default function Navbar() {
                     </div>
 
                     {/* CV İndirme Butonu - PDF dosyanı public klasörüne koymayı unutma */}
-                    <a 
+                    {/* <a 
                         href={`/cv-${language}.pdf`} 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded-xl transition-all"
                     >
                         {t("downloadCv")}
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </nav>
