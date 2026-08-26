@@ -100,7 +100,7 @@ export default function Hero() {
                         {t("heroHeadingEnd")}
                     </span>
                 </h1>
-                
+                 
                 <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-10 leading-relaxed">
                     {t("heroDesc")}
                 </p>
