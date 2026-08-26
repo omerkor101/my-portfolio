@@ -80,7 +80,7 @@ export default function Hero() {
                     </span>
 
                     {/* Orta Kısım: Animasyonlu Vurgu */}
-                    <div className="h-24 md:h-32 flex items-center justify-center">
+                    <div className="h-18 md:h-32 flex items-center justify-center">
                         <AnimatePresence mode="wait"> 
                             <motion.span
                                 key={`${language}-${index}`}
