@@ -1,3 +1,6 @@
+// components/Hero.tsx
+
+
 "use client";
 
 import { useState, useEffect } from "react";

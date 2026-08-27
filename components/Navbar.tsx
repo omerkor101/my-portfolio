@@ -1,3 +1,6 @@
+// components/Navbar.tsx
+
+
 "use client";
 import { useLanguage } from "@/context/LanguageContext";
 import { usePathname } from "next/navigation";

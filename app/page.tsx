@@ -1,3 +1,6 @@
+// app/page.tsx
+
+
 import { client } from "../sanity/lib/sanityFetch";
 
 import Navbar from "@/components/Navbar";

@@ -1,3 +1,6 @@
+// components/WpContact.tsx
+
+
 "use client";
 
 export default function WpContact() {
